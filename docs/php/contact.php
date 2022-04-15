@@ -4,17 +4,17 @@
 
 	// Check if name has been entered
 	if (!isset($_POST['name'])) {
-		$errors['name'] = 'Please enter your name';
+		$errors['name'] = 'Por favor ingrese su email';
 	}
 
 	// Check if email has been entered and is valid
 	if (!isset($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-		$errors['email'] = 'Please enter a valid email address';
+		$errors['email'] = 'Por favor ingrese una direcion de correo valida';
 	}
 
 	//Check if message has been entered
 	if (!isset($_POST['message'])) {
-		$errors['message'] = 'Please enter your message';
+		$errors['message'] = 'Por favor ingrese su mensaje';
 	}
 
 	$errorOutput = '';
@@ -43,7 +43,7 @@
 	$email = $_POST['email'];
 	$message = $_POST['message'];
 	$from = $email;
-	$to = 'info@example.com';  // please change this email id
+	$to = 'info@industriamym.com.ar';  // please change this email id
 	$subject = 'Contact Form : Titan - The best downloaded template ever';
 
 	$body = "From: $name\n E-Mail: $email\n Message:\n $message";
