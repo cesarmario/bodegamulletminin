@@ -16,8 +16,8 @@ $mensaje = $_POST["message"];
 
 // Datos de la cuenta de correo utilizada para enviar vía SMTP
 $smtpHost = "c2520212.ferozo.com";  // Dominio alternativo brindado en el email de alta 
-$smtpUsuario = "info@industriamym.com.ar";  // Mi cuenta de correo
-$smtpClave = "Mul3tCorr3o";  // Mi contraseña
+$smtpUsuario = "webform@industriamym.com.ar";  // Mi cuenta de correo
+$smtpClave = "@w3bF0RM";  // Mi contraseña
 
 // Email donde se enviaran los datos cargados en el formulario de contacto
 $emailDestino = "info@industriamym.com.ar";
@@ -46,9 +46,21 @@ $mail->Body = "{$mensajeHtml} <br /><br />Formulario de Contacto. <br />"; // Te
 $mail->AltBody = "{$mensaje} \n\n Formulario de Contacto"; // Texto sin formato HTML
 // FIN - VALORES A MODIFICAR //
 
+$result = '';
 $estadoEnvio = $mail->Send(); 
 if($estadoEnvio){
-    echo "El correo fue enviado correctamente.";
+    $result .= '<div class="alert alert-success alert-dismissible" role="alert">';
+    $result .= '<button type="button" class="close" data-dismiss="alert" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>';
+    $result .= '¡Gracias! estaremos en contacto';
+    $result .= '</div>';
+
+    
 } else {
-    echo "Ocurrió un error inesperado.";
+    $result .= '<div class="alert alert-danger alert-dismissible" role="alert">';
+	$result .= '<button type="button" class="close" data-dismiss="alert" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>';
+	$result .= 'Algo salió mal durante el envío de este mensaje. Por favor, inténtelo de nuevo más tarde';
+	$result .= '</div>';
 }
+
+echo $result;
+?>
