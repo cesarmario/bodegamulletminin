@@ -712,5 +712,22 @@
     <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDK2Axt8xiFYMBMDwwG1XzBQvEbYpzCvFU"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/main.js"></script>
+    <script type = "text/javascript">
+      function changeImage()
+      {
+          var img = document.getElementById("img");
+          img.src = images[x];
+          x++;
+      
+          if(x >= images.length){
+              x = 0;
+          } 
+        var timerid = setInterval(changeImage(), 1000);
+      } 
+      var images = [], x = 0;
+      images[0] = "image1.jpg";
+      images[1] = "image2.jpg";
+      images[2] = "image3.jpg";
+  </script>
   </body>
 </html>
