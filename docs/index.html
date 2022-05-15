@@ -62,10 +62,10 @@
       function recargar_imagen_bodega() {
           /* Un elemento por imagen de fondo deseado */
           var fondos = [
-          "assets/images/slide/bodega1.jpg",
-          "assets/images/slide/bodega2.jpg",
-          "assets/images/slide/bodega3.jpg",
-          "assets/images/slide/bodega4.jpg"
+          "assets/images/gallery/bodega/bodega1.jpg",
+          "assets/images/gallery/bodega/bodega2.jpg",
+          "assets/images/gallery/bodega/bodega3.jpg",
+          "assets/images/gallery/bodega/bodega4.jpg"
           ];
           /* Cambio de imagen de fondo asegurando que no se repetirá el anterior */
           do {
@@ -86,6 +86,37 @@
       timer = setInterval("recargar_imagen_bodega()", 5000);
 
     </script>
+
+    <script type = "text/javascript">
+
+      function recargar_imagen_fincas() {
+          /* Un elemento por imagen de fondo deseado */
+          var fondos2 = [
+          "assets/images/gallery/finca/finca01.jpg",
+          "assets/images/gallery/finca/finca02.jpg",
+          "assets/images/gallery/finca/finca03.jpg",
+          "assets/images/gallery/finca/finca04.jpg",
+          "assets/images/gallery/finca/finca05.jpg"
+          ];
+          /* Cambio de imagen de fondo asegurando que no se repetirá el anterior */
+          do {
+              indice = Math.floor(Math.random() * fondos2.length);
+          } while (fondos2.length > 0 && indice == anterior);
+          anterior = indice;
+          /* Cambio efectivo de la imagen de fondo */
+          imagen_fincas.src = fondos2[indice];
+      }
+      /* Cambiamos el fondo de pantalla cuando todo haya sido descargado */
+      var indice, anterior = -1;
+      window.onload = function(){
+          var imagen_fincas = document.getElementById("imagen_fincas");
+          recargar_imagen_fincas();
+      };
+
+      // Establecemos el temporizador a 5 segundos
+      timer = setInterval("recargar_imagen_fincas()", 5000);
+
+    </script>    
   </head>
   <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
     <main>
@@ -199,7 +230,7 @@
 
         <section class="module pt-0 pb-0" id="bodega">
           <div class="row position-relative m-0">
-            <div><img id="imagen_bodega" src="assets/images/slide/bodega1.jpg" alt="Imagen" class="col-xs-12 col-md-6 side-image" /></div>
+            <div><img id="imagen_bodega" src="assets/images/gallery/bodega/bodega1.jpg" alt="Imagen" class="col-xs-12 col-md-6 side-image" /></div>
             <div class="col-xs-12 col-md-6 col-md-offset-6">
               <div class="row finance-image-content">
                 <div class="col-md-10 col-md-offset-1">
@@ -308,14 +339,9 @@
                   <div class="module-subtitle font-serif align-left">
                     El clima de San Juan permite el secado de las uvas en forma natural, por la acción del sol, excelentes temperaturas y baja humedad relativa de la zona.
                     Contamos con <b>12 hectáreas de predio empedrado</b> donde se seca la uva al sol (sobre una rejilla) para obtener la pasa. Galpón de <b>1600 m2</b> de espacio útil, más oficinas. 
-                  <b>Línea de proceso de pasas</b> con aprox. 100 metros lineales de distintas máquinas, contamos con tecnología láser en la selección de las pasas.
-
+                  <b>Línea de proceso de pasas</b> con aprox. 100 metros lineales de distintas máquinas, contamos con tecnología láser en la selección de las pasas.<br>
                   </div>
                   <div class="col-md-6 col-sm-6 col-xs-12">
-                    <div class="alt-features-item">
-                      <div class="alt-features-icon"><span class=" icon-layers"></span></div>
-                      <h3 class="alt-features-title font-alt"><b>Elaboramos:</b></h3>
-                    </div>
                     <div class="alt-features-item">
                       <div class="alt-features-icon"><span class="icon-ribbon"></span></div>
                       <h3 class="alt-features-title font-alt">Pasas de uva sin semilla</h3>
@@ -324,9 +350,15 @@
                       <div class="alt-features-icon"><span class="icon-ribbon"></span></div>
                       <h3 class="alt-features-title font-alt">Pasas de uva con semillas</h3>
                     </div>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
                     <div class="alt-features-item">
                       <div class="alt-features-icon"><span class="icon-ribbon"></span></div>
-                      <h3 class="alt-features-title font-alt">Variedades: superior, fiesta, sultanina, flame, CG351 arizul, patricia, selma pete.</h3>
+                      <h3 class="alt-features-title font-alt"><b>Variedades:</b><br>superior, fiesta, sultanina, flame, CG351 arizul, patricia, selma pete.</h3>
+                    </div>
+                    <div class="alt-features-item">
+                      
+                      <h3 class="alt-features-title font-alt"></h3>
                     </div>
                   </div>
                 </div>
@@ -426,7 +458,7 @@
 
         <section class="module pt-0 pb-0" id="fincas">
           <div class="row position-relative m-0">
-            <div class="col-xs-12 col-md-6 side-image" data-background="assets/images/agroindustria/fincas.jpg"></div>
+            <div><img id="imagen_fincas" src="assets/images/gallery/finca/finca01.jpg" alt="Imagen" class="col-xs-12 col-md-6 side-image" /></div>
             <div class="col-xs-12 col-md-6 col-md-offset-6 side-image-text">
               <div class="row">
                 <div class="col-sm-12">
@@ -442,7 +474,7 @@
           </div>
         </section>
 
-        <section class="module" id="fincas">
+        <!--section class="module" id="fincas">
           <div class="container">
             <div class="row">
               <div class="col-sm-6 col-md-8 col-lg-7">
@@ -466,7 +498,7 @@
               </div>
             </div>
           </div>
-        </section>
+        </section-->
 
         <hr class="divider-w">
         <section class="module" id="news">
@@ -611,9 +643,7 @@
               </div>
             </div>
           </div>
-        </section>
-
-        
+        </section>        
 
         <!--div class="module-small bg-dark">
           <div class="container">
